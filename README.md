@@ -12,4 +12,8 @@ The ref position corresponding to the variants in sets will not change, once the
 
 After ensuring that variants set can exist as an independent calculation unit, we abstract it into a class, GroupTask. After stage two, we closely follow a filter step, which is to initially reduce the number of variants and unnecessary computing. After the filter step, all the variants are divided into independent group tasks. We hand these independent tasks to the thread pool for processing. Each thread processes a batch of tasks with the size of Q. After each iteration, the thread will check whether the task is stable(called variants sets will not change any more). If it is, it will be removed from the calculation queue and a new task will be introduced for calculation; otherwise, it will continue to iterate until it is stable.
 
+![parallel structure](https://github.com/BoredMa/MultiNanopolish/blob/master/test/MultiNanopolish.eps)
+
 ## Result
+
+![MultiNanopolish experiment result](https://github.com/BoredMa/MultiNanopolish/blob/master/test/performance.eps)
